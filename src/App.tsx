@@ -1,6 +1,8 @@
 import { Button, Typography } from "../lib";
 
 function App() {
+  const onButtonClick = () => alert("Button clicked");
+
   return (
     <div style={{ padding: "2rem" }}>
       <Typography variant="h1">UI Components React Adapter</Typography>
@@ -8,11 +10,21 @@ function App() {
       <div style={{ marginTop: "2rem" }}>
         <Typography variant="h2">Buttons</Typography>
         <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
-          <Button variant="primary">Primary Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button variant="outlined">Outlined Button</Button>
-          <Button variant="text">Text Button</Button>
-          <Button disabled>Disabled Button</Button>
+          <Button variant="primary" onClick={onButtonClick}>
+            Primary Button
+          </Button>
+          <Button variant="secondary" onClick={onButtonClick}>
+            Secondary Button
+          </Button>
+          <Button variant="outlined" onClick={onButtonClick}>
+            Outlined Button
+          </Button>
+          <Button variant="text" onClick={onButtonClick}>
+            Text Button
+          </Button>
+          <Button disabled onClick={onButtonClick}>
+            Disabled Button
+          </Button>
         </div>
       </div>
 

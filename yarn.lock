@@ -487,10 +487,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.43.0.tgz#42a88207659e404e8ffa655cae763cbad94906ab"
   integrity sha512-SnGhLiE5rlK0ofq8kzuDkM0g7FN1s5VYY+YSMTibP7CqShxCQvqtNxTARS4xX4PFJfHjG0ZQYX9iGzI3FQh5Aw==
 
-"@skymfe/ui-components@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@skymfe/ui-components/-/ui-components-0.1.0.tgz#365e95df68eb758422f430d67b2a5cc8345a385f"
-  integrity sha512-GnJWCRYrvnUcdPt0rsTPY+CEomJHj3gSACpCx2yzoi64iswBYY6nZUA32jNEvMepCMBYEuVrfOsChnjoTDPsiw==
+"@skymfe/ui-components@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@skymfe/ui-components/-/ui-components-0.2.0.tgz#1608b674c40a3d517915d90df7dda088eb17e9ed"
+  integrity sha512-8BqbR7+lJL3N84O3Fet2QA3LxjC9ioDNSSwDYISp70j86MvIj/O//Qi73zENVXTuvTRFKagCrp7C9i/W1nsNLg==
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"

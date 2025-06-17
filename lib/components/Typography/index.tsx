@@ -1,39 +1,31 @@
-import React, { useEffect, useRef } from "react";
-import { Typography as BaseTypography } from "@skymfe/ui-components";
+import React, { useLayoutEffect, useMemo, useRef } from "react";
+import { Typography as BaseTypography, getTypographyTagName } from "@skymfe/ui-components";
 import type { TypographyProps as BaseTypographyProps } from "@skymfe/ui-components";
 
-export interface TypographyProps extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+export interface TypographyProps extends Omit<React.HTMLAttributes<HTMLElement>, "variant"> {
   variant?: BaseTypographyProps["variant"];
-  children: string;
 }
 
-export const Typography: React.FC<TypographyProps> = ({ children, variant = "body1", ...props }) => {
-  const typographyRef = useRef<HTMLDivElement>(null);
-  const typographyInstanceRef = useRef<BaseTypography | null>(null);
+export const Typography: React.FC<TypographyProps> = ({
+  variant = "body1",
+  children,
+  ...props
+}) => {
+  const typographyRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  const Tag = useMemo(() => getTypographyTagName(variant), [variant]);
+
+  useLayoutEffect(() => {
     if (typographyRef.current) {
-      // Create new instance of BaseTypography
-      typographyInstanceRef.current = new BaseTypography({
-        variant,
-        text: children,
-        ...props,
-      });
-
-      // Clear previous content
-      typographyRef.current.innerHTML = "";
-      // Append the typography element
-      typographyRef.current.appendChild(typographyInstanceRef.current.getElement());
+      new BaseTypography(
+        {
+          variant,
+          ...props,
+        },
+        typographyRef.current
+      );
     }
+  }, []);
 
-    // Cleanup
-    return () => {
-      if (typographyInstanceRef.current) {
-        const element = typographyInstanceRef.current.getElement();
-        element.remove();
-      }
-    };
-  }, [children, variant, props]);
-
-  return <div ref={typographyRef} />;
+  return React.createElement(Tag, { ...props, ref: typographyRef }, children);
 };
